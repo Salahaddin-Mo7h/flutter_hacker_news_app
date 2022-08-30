@@ -35,28 +35,39 @@ class StoriesListTile extends StatelessWidget {
     );
   }
 
+  /*Widget ListWidget(BuildContext context, ItemModel model){
+    return  CoverFlow(itemBuilder: widgetBuilder,
+        dismissedCallback: disposeDismissed,
+        currentItemChangedCallback: (int index) {
+        buildCard(context, model);
+    });
+  }*/
+
+
   Widget buildCard(BuildContext context, ItemModel item) {
     return Card(
       elevation: 12.0,
-      margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),  
+      margin:  EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
       child: Container(
-        padding: new EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.5),
+        padding:  EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.5),
         decoration: BoxDecoration(color: Color(0xFF163450)),
         child: buildTile(context, item),
+
       ),
     );
   }
 
+
   Widget buildTile(BuildContext context, ItemModel item) {
     final children = <Widget>[];
     
-    children.add(Padding(padding: EdgeInsets.only(top: 8),));
+    children.add(const Padding(padding: EdgeInsets.only(top: 8),));
     if (item.descendants == null) {
       children.addAll([
-        Padding(padding: EdgeInsets.only(top: 8),),
+        const Padding(padding: EdgeInsets.only(top: 8),),
         Transform.rotate(
           angle: pi / 2,
-          child: Icon(Icons.link, color: Color(0xFF626EE3))
+          child: const Icon(Icons.link, color: Color(0xFF626EE3))
       )]);
     } else {
       children.addAll([
@@ -109,4 +120,5 @@ class StoriesListTile extends StatelessWidget {
         Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0)
     );
   }
+
 }

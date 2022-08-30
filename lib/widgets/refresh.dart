@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../blocs/stories_provider.dart';
+import 'package:bn_refresh_indicator/bn_refresh_indicator.dart';
 
 class Refresh extends StatelessWidget {
   final Widget child;
@@ -10,10 +11,10 @@ class Refresh extends StatelessWidget {
   Widget build(context) {
     final bloc = StoriesProvider.of(context);
 
-    return RefreshIndicator(
-      color: Color(0xFF626EE3),
+    return BnRefreshIndicator(
       backgroundColor: Color(0xFF001528),
-      strokeWidth: 2.0,
+      autoRefresh: false,
+      nodataWidget: const Text('there is no data'),
       child: child,
       onRefresh: () async {
         await bloc.clearCache();

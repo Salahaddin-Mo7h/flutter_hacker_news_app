@@ -61,8 +61,9 @@ class _StoriesTabState extends State<StoriesTab> with AutomaticKeepAliveClientMi
         }
 
         return Refresh(
+          listType: widget.listType,
           child: ListView.builder(
-            padding: EdgeInsets.only(top: 10.0),
+            padding: const EdgeInsets.only(top: 10.0),
             itemCount: snapshot.data.length,
             itemBuilder: (context, int index) {
               bloc.fetchItem(snapshot.data[index]);
@@ -72,9 +73,11 @@ class _StoriesTabState extends State<StoriesTab> with AutomaticKeepAliveClientMi
               );
             },
           ),
-          listType: widget.listType,
         );
       },
     );
   }
-}
+
+  }
+
+
